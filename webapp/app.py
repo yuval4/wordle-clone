@@ -243,18 +243,18 @@ class Language:
 ###############################################################################
 
 
-# before request, redirect to https (unless localhost)
-@app.before_request
-def before_request():
-    print("BEFORE REQUEST")
-    if (
-        request.url.startswith("http://")
-        and not "localhost" in request.url
-        and not "127.0.0" in request.url
-    ):
-        url = request.url.replace("http://", "https://", 1)
-        code = 301
-        return redirect(url, code=code)
+# # before request, redirect to https (unless localhost)
+# @app.before_request
+# def before_request():
+#     print("BEFORE REQUEST")
+#     if (
+#         request.url.startswith("http://")
+#         and not "localhost" in request.url
+#         and not "127.0.0" in request.url
+#     ):
+#         url = request.url.replace("http://", "https://", 1)
+#         code = 301
+#         return redirect(url, code=code)
 
 
 @app.route("/")
